@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TESTing</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body>
+
+
+<div class="container-fluid p-5 bg-primary text-white text-center">
+    <header>
+        <a href="{% url 'pybo:home'%}">TEST PAGE</a>
+    </header>
+</div>
+
+<div class="container mt-3">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'pybo:board' %}">게시판</a>
+      </li>
+    </ul>
+  </div>
+<div>
+  <p> 여기는 베이스페이지 입니다 </p>
+</div>
+    {% block content %}
+        
+    {% endblock %}
+
+
+</body>
+</html>
