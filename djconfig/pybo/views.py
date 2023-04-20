@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 
 def main(request):
-    return render(request, 'pybo/base.html')
+    return render(request, 'base.html')
 
 def board(request):
     return render(request, 'pybo/board.html')

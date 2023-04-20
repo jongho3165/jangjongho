@@ -17,25 +17,30 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'pybo:board' %}">게시판</a></li>
+                {% if user.is_authenticated %}
+                <a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }} (로그아웃)</a>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'common:login' %}">로그인</a></li>
+                {% endif %}
+                <li>
+                    {% if not user.is_authenticated %}
+                    <a class="nav-link" href="{% url 'common:signup' %}">회원가입</a>
+                    {% endif %}
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 </div>
 
-<div class="container mt-3">
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'pybo:board' %}">게시판</a>
-      </li>
-    </ul>
+<header class="bg-primary bg-gradient text-white">
+  <div class="container px-4 text-center">
+      <h1 class="fw-bolder">Welcome to Scrolling Nav</h1>
+      <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
+      <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a>
   </div>
-<div>
-  <p> 여기는 베이스페이지 입니다 </p>
-</div>
+</header>
     {% block content %}
         
     {% endblock %}

@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-^mlzk$e@e46iukoe4567vc@l8vht+ax(=-leoq-t#34-y!g5qi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '0.0.0.0', 'pythonweb-332syq3ora-de.a.run.app' ]
+ALLOWED_HOSTS = [ '0.0.0.0', 'pythonweb-332syq3ora-de.a.run.app', '127.0.0.1', 'localhost' ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'common.apps.CommonConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,3 +125,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'
