@@ -30,5 +30,19 @@ def posting(request, pk):
     post = Post.objects.get(pk=pk)
     return render(request, 'common/posting.html', { 'post':post })
 
+
+
 def board_wirte(request):
-    return render(request, 'common/board_write.html', { 'form':PostForm })
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            postname = form.save(commit=False)
+            postname.create_date = timezone.now()
+            postname.save()
+            return redirect('common:board')
+    else:
+        form = PostForm()
+    context = { 'form':form }
+    return render(request, 'common/board_write.html', context )
+        
+    

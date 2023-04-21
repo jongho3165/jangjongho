@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="" method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table> 
-    <input type="submit" value="제출">
-</form>
+<div class="container">
+    <h5 class="my-3 border-bottom pb-2">질문등록</h5>
+    <form method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div style="padding: 2px 20px; float:right;">
+            <button type="submit" class="btn btn-primary">저장하기</button>
+        </div>
+    </form>
+</div>
+<div style="padding: 2px 20px; float:right;">
+    <a href="{% url 'common:board' %}" class="btn btn-primary">목록</a>
+</div>
 {% endblock %}
