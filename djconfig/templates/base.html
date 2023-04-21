@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'pybo:board' %}">게시판</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'common:board' %}">게시판</a></li>
                 {% if user.is_authenticated %}
                 <a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }} (로그아웃)</a>
                 {% else %}
@@ -35,16 +35,19 @@
 </div>
 
 <header class="bg-primary bg-gradient text-white">
-  <div class="container px-4 text-center">
+  <div class="container px-6 text-center">
       <h1 class="fw-bolder">Welcome to Scrolling Nav</h1>
       <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
       <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a>
   </div>
 </header>
+    <section id="about">
+        <div class="container px-4">
     {% block content %}
         
     {% endblock %}
-
+        </div>
+    </section>
 
 </body>
 </html>

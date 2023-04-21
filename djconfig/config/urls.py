@@ -22,4 +22,5 @@ urlpatterns = [
     path('pybo/', include('pybo.urls')),
     path('common/', include('common.urls')),
     path('', views.main, name='main'),
+    path('summernote/', include('django_summernote.urls')),
 ]

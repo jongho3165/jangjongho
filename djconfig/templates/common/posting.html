@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div calss="container my-3">
+        <h2 class="border-bottom py-2">{{post.postname}}</h2>
+            <table class="table table-bordered">
+                <tr>           
+                    <td>
+                        <p>{{post.contents}}</p>
+                        <p><small style="color:silver;text-align:right;">{{ post.create_date }}</p>
+                    </td>    
+                </tr>
+            </table>
+</div>
+
+<div style="padding: 2px 20px; float:right;">
+    <a href="{% url 'common:board' %}" class="btn btn-primary">목록</a>
+</div>
+<input type="submit" value="답변등록" class="btn btn-primary">
+{% endblock %}
